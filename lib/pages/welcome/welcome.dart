@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:learn_smart/main.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_events.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_states.dart';
@@ -138,8 +137,10 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
                 curve: Curves.ease);
           } else {
             //jump to new page
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const MyHomePage()));
+            // Navigator.of(context).push(
+            //     MaterialPageRoute(builder: (context) => const MyHomePage()));
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("myHomePage", (route) => false);
           }
         },
         child: Container(

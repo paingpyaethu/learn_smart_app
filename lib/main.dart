@@ -35,6 +35,9 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           home: const Welcome(),
+          routes: {
+            'myHomePage': (context) => const MyHomePage()
+          },
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:learn_smart/common/values/colors.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_events.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_states.dart';
@@ -64,13 +65,13 @@ class _WelcomeState extends State<Welcome> {
                   ],
                 ),
                 Positioned(
-                  bottom: 120.h,
+                  bottom: 130.h,
                   child: DotsIndicator(
                     position: state.page,
                     dotsCount: 3,
                     decorator: DotsDecorator(
-                      color: Colors.black54,
-                      activeColor: Colors.indigoAccent,
+                      color: AppColors.primaryThreeElementText,
+                      activeColor: AppColors.primaryElement,
                       size: const Size.square(8.0),
                       activeSize: const Size(18.0, 8.0),
                       activeShape: RoundedRectangleBorder(
@@ -107,7 +108,7 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
         child: Text(
           title,
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.primaryText,
             fontSize: 20.sp,
             fontWeight: FontWeight.bold,
           ),
@@ -120,8 +121,7 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
         child: Text(
           description,
           style: TextStyle(
-            // backgroundColor: Colors.blue,
-            color: Colors.black.withOpacity(0.5),
+            color: AppColors.primarySecondaryElementText,
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,
           ),
@@ -140,7 +140,7 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
             // Navigator.of(context).push(
             //     MaterialPageRoute(builder: (context) => const MyHomePage()));
             Navigator.of(context)
-                .pushNamedAndRemoveUntil("myHomePage", (route) => false);
+                .pushNamedAndRemoveUntil("signIn", (route) => false);
           }
         },
         child: Container(
@@ -148,14 +148,14 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
           width: 325.w,
           height: 50.h,
           decoration: BoxDecoration(
-              color: Colors.indigoAccent,
+              color: AppColors.primaryElement,
               borderRadius: BorderRadius.all(Radius.circular(15.w)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: AppColors.primarySecondaryElementText,
                   spreadRadius: 1,
-                  blurRadius: 2,
-                  offset: const Offset(0, 2),
+                  blurRadius: 1,
+                  offset: const Offset(0, 1),
                 )
               ]),
           child: Center(
@@ -163,7 +163,7 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
               buttonName,
               style: TextStyle(
                 // backgroundColor: Colors.blue,
-                color: Colors.white,
+                color: AppColors.primaryBackground,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
               ),

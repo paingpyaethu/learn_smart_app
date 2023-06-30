@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learn_smart/app_blocs.dart';
 import 'package:learn_smart/app_events.dart';
 import 'package:learn_smart/app_states.dart';
+import 'package:learn_smart/pages/sign-in/sign_in.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/welcome.dart';
 
@@ -30,13 +31,15 @@ class MyApp extends StatelessWidget {
         builder: (context, child) => MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
+          // To make App Bar Background color to white
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
+              appBarTheme: const AppBarTheme(
+                  elevation: 0, backgroundColor: Colors.white)),
+          // To make App Bar Background color to white
           home: const Welcome(),
           routes: {
-            'myHomePage': (context) => const MyHomePage()
+            'myHomePage': (context) => const MyHomePage(),
+            'signIn': (context) => const SignIn(),
           },
         ),
       ),

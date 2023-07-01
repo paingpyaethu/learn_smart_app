@@ -7,8 +7,14 @@ import 'package:learn_smart/app_states.dart';
 import 'package:learn_smart/pages/sign-in/sign_in.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Firebase.initializeApp(
+      //options: DefaultFirabaseOptions.currentPlatform,
+      );
   runApp(const MyApp());
 }
 

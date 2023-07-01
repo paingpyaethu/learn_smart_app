@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "772673617291",
+    "project_id": "learn-smart-90243",
+    "storage_bucket": "learn-smart-90243.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772673617291:android:0158defeeb8a6a6006038e",
+        "android_client_info": {
+          "package_name": "com.paingpyaethu.learn_smart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772673617291-e0kke184ihbi0rv9blq0e87jl0ecpb2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6rnw-APquAQ9VGIwhHwiGifh08X_qTQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772673617291-e0kke184ihbi0rv9blq0e87jl0ecpb2u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "772673617291-7enh66ki2mrorlo4pms2lkj1mpjk7od2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.paingpyaethu.learnSmart"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

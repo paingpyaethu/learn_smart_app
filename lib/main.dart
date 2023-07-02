@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learn_smart/app_blocs.dart';
 import 'package:learn_smart/app_events.dart';
 import 'package:learn_smart/app_states.dart';
+import 'package:learn_smart/pages/bloc_providers.dart';
 import 'package:learn_smart/pages/sign-in/sign_in.dart';
-import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -13,7 +13,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   Firebase.initializeApp(
-      //options: DefaultFirabaseOptions.currentPlatform,
+      //options: DefaultFirebaseOptions.currentPlatform,
       );
   runApp(const MyApp());
 }
@@ -25,14 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => WelcomeBloc(),
-        ),
-        BlocProvider(
-          create: (context) => AppBlocs(),
-        ),
-      ],
+      providers: AppBlocProviders.allBlocProviders,
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           title: 'Flutter Demo',

@@ -5,6 +5,7 @@ import 'package:learn_smart/app_blocs.dart';
 import 'package:learn_smart/app_events.dart';
 import 'package:learn_smart/app_states.dart';
 import 'package:learn_smart/common/values/colors.dart';
+import 'package:learn_smart/pages/application/application_page.dart';
 import 'package:learn_smart/pages/bloc_providers.dart';
 import 'package:learn_smart/pages/register/register.dart';
 import 'package:learn_smart/pages/sign-in/sign_in.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
                   elevation: 0,
                   backgroundColor: Colors.white)),
           // To make App Bar Background color to white
-          home: const Welcome(),
+          home: const ApplicationPage(),
           routes: {
             'myHomePage': (context) => const MyHomePage(),
             'signIn': (context) => const SignIn(),

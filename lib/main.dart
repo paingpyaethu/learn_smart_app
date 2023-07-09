@@ -4,12 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learn_smart/app_blocs.dart';
 import 'package:learn_smart/app_events.dart';
 import 'package:learn_smart/app_states.dart';
+import 'package:learn_smart/common/routes/routes.dart';
 import 'package:learn_smart/common/values/colors.dart';
-import 'package:learn_smart/pages/application/application_page.dart';
-import 'package:learn_smart/pages/bloc_providers.dart';
-import 'package:learn_smart/pages/register/register.dart';
-import 'package:learn_smart/pages/sign-in/sign_in.dart';
-import 'package:learn_smart/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() {
@@ -28,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: AppBlocProviders.allBlocProviders,
+      providers: [...AppPages.allBlocProviders(context)],
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           title: 'Flutter Demo',
@@ -42,12 +38,7 @@ class MyApp extends StatelessWidget {
                   elevation: 0,
                   backgroundColor: Colors.white)),
           // To make App Bar Background color to white
-          home: const ApplicationPage(),
-          routes: {
-            'myHomePage': (context) => const MyHomePage(),
-            'signIn': (context) => const SignIn(),
-            'register': (context) => const Register(),
-          },
+          onGenerateRoute: AppPages.GenerateRouteSettings,
         ),
       ),
     );

@@ -1,8 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:learn_smart/common/routes/routes.dart';
 import 'package:learn_smart/common/values/colors.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_events.dart';
@@ -140,7 +140,7 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
             // Navigator.of(context).push(
             //     MaterialPageRoute(builder: (context) => const MyHomePage()));
             Navigator.of(context)
-                .pushNamedAndRemoveUntil("signIn", (route) => false);
+                .pushNamedAndRemoveUntil(AppRoutes.LOGIN, (route) => false);
           }
         },
         child: Container(

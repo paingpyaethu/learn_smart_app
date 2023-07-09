@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn_smart/common/routes/routes.dart';
+import 'package:learn_smart/global.dart';
+import 'package:learn_smart/pages/application/application_page.dart';
+import 'package:learn_smart/pages/application/bloc/app_blocs.dart';
 import 'package:learn_smart/pages/register/bloc/register_blocs.dart';
 import 'package:learn_smart/pages/register/register.dart';
 import 'package:learn_smart/pages/sign-in/bloc/sign_in_blocs.dart';
@@ -12,21 +15,21 @@ class AppPages {
   static List<PageEntity> routes() {
     return [
       PageEntity(
-          routes: AppRoutes.INITIAL,
+          route: AppRoutes.INITIAL,
           page: Welcome(),
           bloc: BlocProvider(create: (_) => WelcomeBloc())),
       PageEntity(
-          routes: AppRoutes.LOGIN,
+          route: AppRoutes.LOGIN,
           page: SignIn(),
           bloc: BlocProvider(create: (_) => SignInBloc())),
       PageEntity(
-          routes: AppRoutes.REGISTER,
+          route: AppRoutes.REGISTER,
           page: Register(),
           bloc: BlocProvider(create: (_) => RegisterBloc())),
       PageEntity(
-          routes: AppRoutes.APPLICATION,
-          page: Welcome(),
-          bloc: BlocProvider(create: (_) => WelcomeBloc())),
+          route: AppRoutes.APPLICATION,
+          page: ApplicationPage(),
+          bloc: BlocProvider(create: (_) => AppBlocs())),
     ];
   }
 
@@ -42,9 +45,18 @@ class AppPages {
   static MaterialPageRoute GenerateRouteSettings(RouteSettings settings) {
     if (settings.name != null) {
       // Check for route name matching when navigator gets triggered.
-      var result = routes().where((element) => element.routes == settings.name);
+      var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
-        //
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+        if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
+          bool isLoggedIn = Global.storageService.getIsLoggedIn();
+          if (isLoggedIn) {
+            return MaterialPageRoute(
+                builder: (_) => ApplicationPage(), settings: settings);
+          }
+          return MaterialPageRoute(
+              builder: (_) => SignIn(), settings: settings);
+        }
         return MaterialPageRoute(
             builder: (_) => result.first.page, settings: settings);
       }
@@ -56,9 +68,9 @@ class AppPages {
 
 // Unify BlocProvider and routes and pages
 class PageEntity {
-  String routes;
+  String route;
   Widget page;
   dynamic bloc;
 
-  PageEntity({required this.routes, required this.page, required this.bloc});
+  PageEntity({required this.route, required this.page, required this.bloc});
 }

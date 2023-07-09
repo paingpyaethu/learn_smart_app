@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learn_smart/common/routes/routes.dart';
+import 'package:learn_smart/common/values/constant.dart';
 import 'package:learn_smart/common/widgets/flutter_toast.dart';
+import 'package:learn_smart/global.dart';
 import 'package:learn_smart/pages/sign-in/bloc/sign_in_blocs.dart';
 
 class SignInController {
@@ -41,6 +44,10 @@ class SignInController {
           if (user != null) {
             //we got varified user from firebase
             print('user exists');
+            Global.storageService
+                .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '1234567890');
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                AppRoutes.APPLICATION, (route) => false);
             return;
           } else {
             //we have error getting user from firebase

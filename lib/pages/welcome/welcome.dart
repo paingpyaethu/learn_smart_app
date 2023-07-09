@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learn_smart/common/routes/routes.dart';
 import 'package:learn_smart/common/values/colors.dart';
+import 'package:learn_smart/common/values/constant.dart';
+import 'package:learn_smart/global.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_events.dart';
 import 'package:learn_smart/pages/welcome/bloc/welcome_states.dart';
@@ -139,6 +141,8 @@ Widget _page(int index, BuildContext context, String buttonName, String title,
             //jump to new page
             // Navigator.of(context).push(
             //     MaterialPageRoute(builder: (context) => const MyHomePage()));
+            Global.storageService
+                .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
             Navigator.of(context)
                 .pushNamedAndRemoveUntil(AppRoutes.LOGIN, (route) => false);
           }

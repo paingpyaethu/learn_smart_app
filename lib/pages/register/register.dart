@@ -33,7 +33,7 @@ class _RegisterState extends State<Register> {
                     child: reusableText(
                         'Enter your details below & free sign up.')),
                 Container(
-                  margin: EdgeInsets.only(top: 40.h),
+                  margin: EdgeInsets.only(top: 60.h),
                   width: double.maxFinite,
                   // color: Colors.blue,
                   padding: EdgeInsets.symmetric(horizontal: 20.w),

@@ -4,6 +4,8 @@ import 'package:learn_smart/common/routes/routes.dart';
 import 'package:learn_smart/global.dart';
 import 'package:learn_smart/pages/application/application_page.dart';
 import 'package:learn_smart/pages/application/bloc/app_blocs.dart';
+import 'package:learn_smart/pages/home/bloc/home_page_blocs.dart';
+import 'package:learn_smart/pages/home/home_page.dart';
 import 'package:learn_smart/pages/register/bloc/register_blocs.dart';
 import 'package:learn_smart/pages/register/register.dart';
 import 'package:learn_smart/pages/sign-in/bloc/sign_in_blocs.dart';
@@ -30,6 +32,10 @@ class AppPages {
           route: AppRoutes.APPLICATION,
           page: ApplicationPage(),
           bloc: BlocProvider(create: (_) => AppBlocs())),
+      PageEntity(
+          route: AppRoutes.HOME_PAGE,
+          page: HomePage(),
+          bloc: BlocProvider(create: (_) => HomePageBlocs())),
     ];
   }
 
